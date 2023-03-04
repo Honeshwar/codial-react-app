@@ -1,3 +1,3 @@
 import Home from './Home';
-
-export { Home }; //export an obj so import destructuring use,export.key
+import Posts from './Posts';
+export { Home, Posts }; //export an obj so import destructuring use,export.key
