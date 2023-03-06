@@ -1,5 +1,5 @@
-import styles from '../styles/home.module.css';
-import { Posts } from './';
+import PropsTypes from 'prop-types';
+import { styles, Posts } from './';
 const Home = ({ posts }) => {
   return (
     <div className={styles.postsList}>
@@ -13,5 +13,10 @@ const Home = ({ posts }) => {
     </div>
   );
 };
+
+//property write for home comp. ,if props posts must be this type
+Home.propsTypes = {
+  posts: PropsTypes.array.isRequired,
+}; //throw error in console that type is not valid
 
 export default Home;

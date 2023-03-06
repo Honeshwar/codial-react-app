@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getPosts } from '../api';
 import { Home } from '../pages';
-import { Loader } from './';
+import { Loader, Navbar } from './';
 function App() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,7 +27,12 @@ function App() {
     return <Loader />;
   }
 
-  return <Home posts={posts} />;
+  return (
+    <div className="App">
+      <Navbar />
+      <Home posts={posts} />;
+    </div>
+  );
 }
 
 export default App;
