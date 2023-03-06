@@ -35,9 +35,9 @@ function App() {
   // const About = () => {
   //   return <h1>About</h1>;
   // };
-  // const Page404 = () => {
-  //   return <h1>404</h1>;
-  // };
+  const Page404 = () => {
+    return <h1>404</h1>;
+  };
 
   return (
     <div className="App">
@@ -50,7 +50,7 @@ function App() {
           {/* Routes that match with url */}
           <Route path="/" element={<Home posts={posts} />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          {/* <Route path="" element={<Page404 />}></Route> */}
+          <Route path="*" element={<Page404 />}></Route>
         </Routes>
       </Router>
     </div>
