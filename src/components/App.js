@@ -40,21 +40,23 @@ function App() {
   };
 
   return (
-    <div className="App">
-      {/* <Navbar /> */}
-      {/* enclosed all router inside it and comp*/}
-      <Router>
-        {/* inside router because Link component in react-router-dom need component that use it inside(enclosed) router component, want to render navbar for each route change*/}
-        <Navbar />
-        {/*Routes act as switch/if-else-if only once route execute among many that matches first and not execute further  */}
-        <Routes>
-          {/* Routes that match with url */}
-          <Route path="/" element={<Home posts={posts} />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="*" element={<Page404 />}></Route>
-        </Routes>
-      </Router>
-    </div>
+    <>
+      <div className="App">
+        {/* <Navbar /> */}
+        {/* enclosed all router inside it and comp*/}
+        <Router>
+          {/* inside router because Link component in react-router-dom need component that use it inside(enclosed) router component, want to render navbar for each route change*/}
+          <Navbar />
+          {/*Routes act as switch/if-else-if only once route execute among many that matches first and not execute further  */}
+          <Routes>
+            {/* Routes that match with url */}
+            <Route path="/" element={<Home posts={posts} />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="*" element={<Page404 />}></Route>
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
 
