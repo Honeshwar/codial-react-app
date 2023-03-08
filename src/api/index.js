@@ -1,4 +1,4 @@
-import { API_URLS, LOCALSTORAGE_TOKEN_KEY } from '../Utils';
+import { API_URLS, LOCALSTORAGE_TOKEN_KEY, getFormBody } from '../Utils';
 
 //we use this func so bar bar we don't have to use fetch() repeative code
 const customFetch = async (url, { body, ...customConfig }) => {
@@ -8,8 +8,7 @@ const customFetch = async (url, { body, ...customConfig }) => {
 
   const headers = {
     //req header
-    'content-type': 'application/json', //content send/post type
-    Accept: 'application/json', ////content get type
+    'content-type': 'application/x-www-form-urlencoded', //this type of data accept by server
   };
 
   if (token) {
@@ -26,7 +25,8 @@ const customFetch = async (url, { body, ...customConfig }) => {
   };
 
   if (body) {
-    config.body = JSON.stringify(body);
+    config.body = getFormBody(body); //func help in convert data in urlencoded way/form, due to line 11
+    console.log(config.body);
   }
 
   try {
@@ -40,7 +40,8 @@ const customFetch = async (url, { body, ...customConfig }) => {
         success: true,
       };
     }
-    throw new Error(responseData.message); //else part
+    return { message: responseData.message, success: false };
+    // throw new Error(responseData.message); //else part
   } catch (error) {
     console.log(error);
     console.error(error);
@@ -62,7 +63,7 @@ export const getPosts = (page = 1, limit = 5) => {
 };
 
 export const login = (email, password) => {
-  return customFetch(API_URLS.login, {
+  return customFetch(API_URLS.login(), {
     method: 'POST',
     body: {
       email,
