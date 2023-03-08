@@ -31,12 +31,12 @@ export const getTokenFromLocalStorage = (key) => {
   if (!key) {
     return console.error("not a valid key ,so can't store in local storage");
   }
-  localStorage.getItem(key);
+  return localStorage.getItem(key);
 };
 
 export const removeTokenFromLocalStorage = (key) => {
   if (!key) {
     return console.error("not a valid key ,so can't store in local storage");
   }
-  localStorage.removeItem(key);
+  return localStorage.removeItem(key);
 };
