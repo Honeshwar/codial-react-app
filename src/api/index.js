@@ -1,10 +1,10 @@
-import { API_URLS, LOCALSTORAGE_TOKEN_KEY, getFormBody } from '../Utils';
+import { API_URLS, LOCAL_STORAGE_TOKEN_KEY, getFormBody } from '../Utils';
 
 //we use this func so bar bar we don't have to use fetch() repeative code
 const customFetch = async (url, { body, ...customConfig }) => {
   //customconfig method,..
   //object destructuring,rest operator , (body=variable ,customConfig= variable(array))
-  const token = window.localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
+  const token = window.localStorage.getItem(LOCAL_STORAGE_TOKEN_KEY);
 
   const headers = {
     //req header
@@ -68,6 +68,17 @@ export const login = (email, password) => {
     body: {
       email,
       password,
+    },
+  });
+};
+
+export const signIn = (email, password, confirmPassword) => {
+  return customFetch(API_URLS.signup(), {
+    method: 'POST',
+    body: {
+      email,
+      password,
+      confirmPassword,
     },
   });
 };

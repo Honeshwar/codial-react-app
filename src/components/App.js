@@ -3,6 +3,7 @@ import { getPosts } from '../api';
 import { Home, Login } from '../Pages';
 import { Loader, Navbar } from './';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignIn from '../Pages/SignIn';
 function App() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,13 +29,6 @@ function App() {
     return <Loader />;
   }
 
-  //just for routing
-  // const Login = () => {
-  //   return <h1>Login</h1>;
-  // };
-  // const About = () => {
-  //   return <h1>About</h1>;
-  // };
   const Page404 = () => {
     return <h1>404</h1>;
   };
@@ -52,6 +46,7 @@ function App() {
             {/* Routes that match with url */}
             <Route path="/" element={<Home posts={posts} />}></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/signin" element={<SignIn />}></Route>
             <Route path="*" element={<Page404 />}></Route>
           </Routes>
         </Router>

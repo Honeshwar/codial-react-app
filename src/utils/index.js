@@ -15,3 +15,28 @@ export const getFormBody = (params) => {
 
   return formBody.join('&'); //'username=shawn&password=12352'//single string covert all element of array separated by & each element in single string
 };
+
+//we create here helper function
+export const setTokenToLocalStorage = (key, value) => {
+  if (!key || !value) {
+    return console.error("not a valid key ,so can't store in local storage");
+  }
+  //local storage value only string contain
+  const valueTOStore =
+    typeof value === 'string' ? value : JSON.stringify(value);
+  localStorage.setItem(key, valueTOStore);
+};
+
+export const getTokenFromLocalStorage = (key) => {
+  if (!key) {
+    return console.error("not a valid key ,so can't store in local storage");
+  }
+  localStorage.getItem(key);
+};
+
+export const removeTokenFromLocalStorage = (key) => {
+  if (!key) {
+    return console.error("not a valid key ,so can't store in local storage");
+  }
+  localStorage.removeItem(key);
+};
