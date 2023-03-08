@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles } from './';
+import { styles } from '.';
 function Comments() {
   return (
     <div className={styles.postCommentsItem}>

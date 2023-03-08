@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/index.css';
-import { App } from './components/index.js';
+import './Styles/index.css';
+import { App } from './Components/index.js';
+import { AuthProvider } from './Providers/AuthProvider';
 //get that element from html where comp reneder karana hai
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* use it here so all data relate to auth can provide to all components,they can use to do things/check/data server authorize token  */}
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </React.StrictMode>
 );
 

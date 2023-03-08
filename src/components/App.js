@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getPosts } from '../api';
-import { Home, Login } from '../pages';
+import { Home, Login } from '../Pages';
 import { Loader, Navbar } from './';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {

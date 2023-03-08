@@ -1,4 +1,4 @@
-import { API_URLS, LOCALSTORAGE_TOKEN_KEY } from '../utils';
+import { API_URLS, LOCALSTORAGE_TOKEN_KEY } from '../Utils';
 
 //we use this func so bar bar we don't have to use fetch() repeative code
 const customFetch = async (url, { body, ...customConfig }) => {
@@ -58,5 +58,15 @@ export const getPosts = (page = 1, limit = 5) => {
   // post page no and limit = how much post needed
   return customFetch(API_URLS.posts(page, limit), {
     method: 'GET',
+  });
+};
+
+export const login = (email, password) => {
+  return customFetch(API_URLS.login, {
+    method: 'POST',
+    body: {
+      email,
+      password,
+    },
   });
 };

@@ -1,5 +1,5 @@
 import PropsTypes from 'prop-types';
-import { styles, Posts } from './';
+import { styles, Posts } from '.';
 const Home = ({ posts }) => {
   return (
     <div className={styles.postsList}>

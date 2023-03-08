@@ -1,4 +1,4 @@
-import { styles, Comments } from './';
+import { styles, Comments } from '.';
 import React from 'react';
 
 function Posts(props) {

@@ -1,6 +1,7 @@
-import styles from '../styles/login.module.css';
+import styles from '../Styles/login.module.css';
 import { useState } from 'react';
 import toast, { toast1, success, error } from 'react-toast-notification';
+import { login } from '../api';
 // toast.success()
 //toast1(),success()
 const Login = () => {
@@ -9,28 +10,31 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loggingIn, setLoggingIn] = useState(false); //dynamic ui create(good)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoggingIn(true);
 
     if (!email || !password) {
       //empty=""
-      error('Something went wrong.', {
+      return error('Something went wrong.', {
         status: 'Error!',
         type: 'error',
         autoHide: false,
         delay: '7000',
       });
-      setLoggingIn(false);
     } else {
-      success('successfully login', {
-        status: 'Login!',
-        type: 'success',
-        autoHide: false,
-        delay: '7000',
-      });
-      setLoggingIn(false);
+      const response = await login(email, password);
+      console.log(response);
+      if (response.success) {
+        toast.success('successfully login', {
+          status: 'Login!',
+          type: 'success',
+          autoHide: false,
+          delay: '7000',
+        });
+      }
     }
+    setLoggingIn(false); //after complete api req
   };
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
