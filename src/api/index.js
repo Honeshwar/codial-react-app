@@ -40,8 +40,8 @@ const customFetch = async (url, { body, ...customConfig }) => {
         success: true,
       };
     }
-    return { message: responseData.message, success: false };
-    // throw new Error(responseData.message); //else part
+    // return { message: responseData.message, success: false };
+    throw new Error(responseData.message); //else part
   } catch (error) {
     console.log(error);
     console.error(error);
@@ -72,13 +72,14 @@ export const login = (email, password) => {
   });
 };
 
-export const signIn = (email, password, confirmPassword) => {
+export const register = (name, email, password, confirmPassword) => {
   return customFetch(API_URLS.signup(), {
     method: 'POST',
     body: {
+      name,
       email,
       password,
-      confirmPassword,
+      confirm_password: confirmPassword,
     },
   });
 };

@@ -1,7 +1,7 @@
 import { Home, Login } from '../Pages';
 import { Loader, Navbar } from './';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SignIn from '../Pages/SignIn';
+import SignUp from '../Pages/SignUp';
 import { getAuthContextValue } from '../Hooks/customHookForAuthContext';
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
             {/* Routes that match with url */}
             <Route path="/" element={<Home />}></Route>
             <Route path="/login" element={<Login />}></Route>
-            <Route path="/signin" element={<SignIn />}></Route>
+            <Route path="/register" element={<SignUp />}></Route>
             <Route path="*" element={<Page404 />}></Route>
           </Routes>
         </Router>
