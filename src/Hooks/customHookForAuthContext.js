@@ -56,6 +56,6 @@ export const useProviderAuth = () => {
   };
 };
 
-export const useAuthContextValue = () => {
+export const getAuthContextValue = () => {
   return useContext(AuthContext);
 };

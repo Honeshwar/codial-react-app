@@ -2,8 +2,10 @@ import { Home, Login } from '../Pages';
 import { Loader, Navbar } from './';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from '../Pages/SignIn';
+import { getAuthContextValue } from '../Hooks/customHookForAuthContext';
 
 function App() {
+  const auth = getAuthContextValue();
   if (auth.loading) {
     return <Loader />;
   }

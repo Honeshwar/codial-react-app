@@ -1,8 +1,7 @@
 import styles from '../Styles/login.module.css';
 import { useState } from 'react';
 import toast, { toast1, success, error } from 'react-toast-notification';
-import { login } from '../api';
-import { useAuthContextValue } from '../Hooks/customHookForAuthContext';
+import { getAuthContextValue } from '../Hooks/customHookForAuthContext';
 // toast.success()
 //toast1(),success()
 const Login = () => {
@@ -12,7 +11,7 @@ const Login = () => {
   const [loggingIn, setLoggingIn] = useState(false); //dynamic ui create(good)
 
   //getting value from provider
-  const value = useAuthContextValue();
+  const value = getAuthContextValue();
   console.log(value);
 
   const handleSubmit = async (e) => {
